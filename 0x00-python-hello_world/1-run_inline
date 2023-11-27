@@ -1,0 +1,3 @@
+#!/bin/bash
+# Run Python code using the -c flag
+python3 -c "$PYCODE"
