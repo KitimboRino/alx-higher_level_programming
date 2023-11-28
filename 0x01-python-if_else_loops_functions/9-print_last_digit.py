@@ -11,7 +11,7 @@ def print_last_digit(number):
         # Calculate the last digit using the modulo operator
         last_num = number % 10
 
-    # Print the last digit using formatted string and prevent a newline with end=""
+    # Print the last digit using formatted string and prevent a newline
     print("{:d}".format(last_num), end="")
 
     # Return the last digit
