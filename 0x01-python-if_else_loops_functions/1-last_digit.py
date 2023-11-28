@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import random
 
-# Assign a random signed number to the variable 'number'
 number = random.randint(-10000, 10000)
 
 # Print the assigned number
