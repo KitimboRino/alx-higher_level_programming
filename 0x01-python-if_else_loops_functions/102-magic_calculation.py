@@ -12,4 +12,3 @@ def magic_calculation(a, b, c):
     else:
         # If non  condition is true, return
         return a * b - c
-
