@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
-def uppercase(input_str):
-    for char in input_str:
-        if ord('a') <= ord(char) <= ord('z'):
-            # Convert to uppercase by subtracting the ASCII difference
-            char = chr(ord(char) - ord('a') + ord('A'))
-        print("{:s}".format(char), end="")
+def uppercase(str):
+    for i in str:
+        if ord("a") <= ord(i) <= ord("z"):
+            i = chr(ord(i) - 32)
+        print("{:s}".format(i), end="")
     print()
