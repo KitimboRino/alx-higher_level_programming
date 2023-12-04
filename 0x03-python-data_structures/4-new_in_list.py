@@ -7,7 +7,7 @@ def new_in_list(my_list, idx, element):
 
     # Create a new list with the same elements as the original list
     new_list = list(my_list)
-    
+
     # Replace the element at the specified index in the new list
     new_list[idx] = element
 
