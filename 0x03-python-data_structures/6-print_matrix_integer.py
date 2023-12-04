@@ -8,7 +8,7 @@ def print_matrix_integer(matrix=[[]]):
         for row in range(len(matrix)):
             # Iterate through each item in the row
             for item in range(len(matrix[row])):
-                # Determine whether to print a space or not based on the position of the item
+                # Determine whether to print a space or not
                 if item != len(matrix[row]) - 1:
                     endspace = ' '
                 else:
