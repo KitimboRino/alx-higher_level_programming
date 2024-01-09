@@ -5,9 +5,8 @@ function that reads a text file
 
 
 def read_file(filename=""):
-    try:
-        with open(filename, "r", encoding="utf-8") as file:
-            content = file.read()
-            print(content)
-    except FileNotFoundError:
-        pass  # File doesn't exist
+    """reads a text file (UTF8) and prints it to stdout
+    Returns none
+    """
+    with open(filename, "r", encoding="utf-8") as f:
+        print(f.read(), end="")
