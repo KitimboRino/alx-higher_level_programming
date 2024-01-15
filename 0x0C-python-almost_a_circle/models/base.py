@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''Module base.
+'''
+Module base.
 Defines a Base class for other classes in the project.
 '''
 
@@ -9,21 +10,23 @@ import csv
 
 
 class Base:
-    '''Class with:
+    '''
+    Class with:
     Private class attribute: __nb_objects
     '''
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        '''Initialization of a Base instance.
+        '''
+        Initialization of a Base instance.
 
         Args:
             - id: id of the instance
         '''
 
         if type(id) != int and id is not None:
-            raise TypeError("id must be an integer")
+            raise TypeError('id must be an integer')
         if id is not None:
             self.id = id
         else:
@@ -32,7 +35,8 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''Returns a JSON representation of list_dictionaries.
+        '''
+        Returns a JSON representation of list_dictionaries.
 
         Args:
             - list_dictionaries: list of dicts
@@ -44,12 +48,13 @@ class Base:
             return '[]'
         if (type(list_dictionaries) != list or
            not all(type(x) == dict for x in list_dictionaries)):
-            raise TypeError("list_dictionaries must be a list of dictionaries")
+            raise TypeError('list_dictionaries must be a list of dictionaries')
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''Writes the JSON string representation of
+        '''
+        Writes the JSON string representation of
         list_objs to a file.
 
         Args:
@@ -67,26 +72,27 @@ class Base:
             jstr = cls.to_json_string([o.to_dictionary() for o in list_objs])
         filename = cls.__name__ + '.json'
         with open(filename, 'w') as f:
-                f.write(jstr)
+            f.write(jstr)
 
     @staticmethod
     def from_json_string(json_string):
-        '''Returns the list of the JSON string representation json_string.
+        '''
+        Returns the list of the JSON string representation json_string.
 
         Args:
             - json_string: string to convert to list
         '''
-
-        l = []
+        json_list = []
         if json_string is not None and json_string != '':
             if type(json_string) != str:
                 raise TypeError('json_string must be a string')
-            l = json.loads(json_string)
-        return l
+            json_list = json.loads(json_string)
+        return json_list
 
     @classmethod
     def create(cls, **dictionary):
-        '''Returns an instance with all attributes already set.
+        '''
+        Returns an instance with all attributes already set.
 
         Args:
             - dictionary: used as **kwargs
@@ -105,19 +111,20 @@ class Base:
         '''Returns a list of instances.'''
 
         filename = cls.__name__ + '.json'
-        l = []
+        instances_list = []
         list_dicts = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 s = f.read()
                 list_dicts = cls.from_json_string(s)
                 for d in list_dicts:
-                    l.append(cls.create(**d))
-        return l
+                    instances_list.append(cls.create(**d))
+        return instances_list
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        '''Serializes list_objs in CSV format
+        '''
+        Serializes list_objs in CSV format
         and saves it to a file.
 
         Args:
@@ -143,13 +150,14 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        '''Deserializes CSV format from a file.
+        '''
+        Deserializes CSV format from a file.
 
         Returns: list of instances
         '''
 
         filename = cls.__name__ + '.csv'
-        l = []
+        instances_list = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 reader = csv.reader(f, delimiter=',')
@@ -159,11 +167,11 @@ class Base:
                     fields = ['id', 'size', 'x', 'y']
                 for x, row in enumerate(reader):
                     if x > 0:
-                        i = cls(1, 1)
+                        instances_list = cls(1, 1)
                         for j, e in enumerate(row):
                             if e:
                                 setattr(i, fields[j], int(e))
-                        l.append(i)
+                        instances_list.append(i)
         return l
 
     @staticmethod
@@ -181,9 +189,9 @@ class Base:
         from random import randrange
 
         t = turtle.Turtle()
-        t.color("beige")
-        turtle.bgcolor("violet")
-        t.shape("square")
+        t.color('beige')
+        turtle.bgcolor('violet')
+        t.shape('square')
         t.pensize(8)
 
         for i in (list_rectangles + list_squares):
