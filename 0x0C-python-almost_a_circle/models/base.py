@@ -167,12 +167,12 @@ class Base:
                     fields = ['id', 'size', 'x', 'y']
                 for x, row in enumerate(reader):
                     if x > 0:
-                        instances_list = cls(1, 1)
+                        instance = cls(1, 1)
                         for j, e in enumerate(row):
                             if e:
-                                setattr(i, fields[j], int(e))
-                        instances_list.append(i)
-        return l
+                                setattr(instance, fields[j], int(e))
+                        instances_list.append(instance)
+        return instances_list
 
     @staticmethod
     def draw(list_rectangles, list_squares):
