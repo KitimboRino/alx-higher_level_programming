@@ -1,4 +1,4 @@
-#!/usr/bin/node;
+#!/usr/bin/node
 'use strict';
 
 const strings = ['C is fun', 'Python is cool', 'Javascript is amazing'];
