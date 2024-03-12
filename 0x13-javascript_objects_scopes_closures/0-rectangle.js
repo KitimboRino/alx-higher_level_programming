@@ -1,4 +1,4 @@
 #!/usr/bin/bash/node
 
-class rectangle {
-}
+module.exports = class rectangle {
+};
