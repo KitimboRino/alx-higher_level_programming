@@ -22,7 +22,7 @@ module.exports = class Rectanle {
 
   // Method to multiply the width and height each by 2
   double () {
-    this.heigth = this.height * 2;
+    this.height = this.height * 2;
     this.width = this.width * 2;
   }
 };
