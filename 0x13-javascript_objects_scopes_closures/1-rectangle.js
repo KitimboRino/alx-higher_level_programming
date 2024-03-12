@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/node
 
 module.exports = class Rectangle {
   constructor (w, h) {
