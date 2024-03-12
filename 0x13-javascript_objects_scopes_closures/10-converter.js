@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-// This script defines a function 'converter' that returns a nested function 'convert'. 
+// This script defines a function 'converter' that returns a nested function 'convert'.
 // The 'convert' function converts a given number to a string representation in the specified base.
 
 // Function parameter:
@@ -9,7 +9,7 @@
 exports.converter = function (base) {
   // Nested function:
   // - convert: takes a number as a parameter and converts it to a string representation in the specified base
-  function convert(number) {
+  function convert (number) {
     return number.toString(base);
   }
 
