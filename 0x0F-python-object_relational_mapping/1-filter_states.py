@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-""" Lists all states from the database hbtn_0e_0_usa."""
+"""
+Lists all states with a name satsting with N from
+the database hbtn_0e_0_usa.
+"""
 
 from sys import argv
 import MySQLdb
 
-# Main condition check
 if __name__ == "__main__":
-    db = MySQLdb.connect(
+    db = MysSQLdb.connect(
             host='localhost',
             port=3306,
             user=argv[1],
@@ -14,7 +16,5 @@ if __name__ == "__main__":
             db=argv[3],
             charset='utf8')
     cur = db.cursor()
-    cur.execute("SELECT * FROM `states` ORDDER BY `id` ASC")
-    [print(state) for state in cur.fetchall()]
-    cur.close()
-    db.close()
+    cur.execute("SELECT * FROM `states` ORDER BY `id`")
+    [print(state) for state in cur.fetchall() if state[1][0] == "N"]
