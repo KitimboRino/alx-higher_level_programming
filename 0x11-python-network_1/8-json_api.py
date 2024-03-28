@@ -14,7 +14,7 @@ if __name__ == "__main__":
     # Extracting letter from command line argument if provided
     letter = "" if len(argv) == 1 else argv[1]
 
-    # Sending a POST request to the specified URL with the letter as a parameter
+    # Sending a POST request to specified URL with letter as a parameter
     req = requests.post("http://0.0.0.0:5000/search_user", {"q": letter})
 
     try:
