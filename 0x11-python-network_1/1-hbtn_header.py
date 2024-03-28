@@ -5,25 +5,17 @@ the value of the X-Request-Id variable found in the header of the response.
 
 Usage: ./1-hbtn_header.py <URL>
 """
-
-
 from sys import argv
 from urllib.request import Request, urlopen
 
 if __name__ == "__main__":
-    # Get the URL from command-line argument
+    # Extracting URL from command line argument
     url = argv[1]
 
-    # Create a Request object with the URL
+    # Creating a request object with the provided URL
     req = Request(url)
 
-    # Open the request using urlopen
+    # Sending the request and handling the response
     with urlopen(req) as response:
-        # Get the X-Request-Id variable from the response headers
-        x_request_id = dict(response.headers).get("X-Request-Id")
-
-        # Check if X-Request-Id variable is present in the header
-        if x_request_id:
-            print(x_request_id)
-        else:
-            print("X-Request-Id variable not found in header of response.")
+        # Extracting and printing the value of X-Request-Id header
+        print(dict(response.headers).get("X-Request-Id"))
