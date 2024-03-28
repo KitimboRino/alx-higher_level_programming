@@ -10,10 +10,10 @@ import requests
 if __name__ == "__main__":
     # Constructing URL based on provided repository name and owner
     url = "https://api.github.com/repos/{}/{}/commits".format(argv[2], argv[1])
-    
+
     # Sending a GET request to retrieve commit information
     req = requests.get(url)
-    
+
     # Extracting commits from the response
     commits = req.json()
 
